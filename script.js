@@ -200,8 +200,8 @@ document.querySelectorAll('.skill-card, .edu-card, .timeline-item, .internship-c
 
 // ===== SUPABASE CONTACT FORM =====
 // Supabase configuration — replace with your actual credentials
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://okvbnnyneoilqkmntoij.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_2wqDyEh34CwD28oQq9V8FQ_y01hKzTk';
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
