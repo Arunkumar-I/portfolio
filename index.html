@@ -30,6 +30,7 @@
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#education" class="nav-link">Education</a>
+                <a href="#projects" class="nav-link">Projects</a>
                 <a href="#internship" class="nav-link">Internship</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -252,6 +253,132 @@
             </div>
         </div>
     </section>
+
+    <!-- Projects Gallery Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title">Project Gallery</h2>
+                <p class="section-subtitle">A showcase of my creative designs, posters, and marketing materials</p>
+            </div>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="social-media">Social Media</button>
+                <button class="filter-btn" data-filter="ads">Ads</button>
+                <button class="filter-btn" data-filter="content">Content</button>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item" data-category="social-media" data-delay="0">
+                    <div class="gallery-card">
+                        <img src="photos/poster-social-media.png" alt="Social Media Management Poster" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Social Media</span>
+                            <h3 class="gallery-title">Social Media Management</h3>
+                            <p class="gallery-desc">Strategic social media branding and feed design</p>
+                            <button class="gallery-zoom" aria-label="View full size">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-shine"></div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ads" data-delay="100">
+                    <div class="gallery-card">
+                        <img src="photos/poster-google-ads.png" alt="Google Ads Campaign Poster" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Ads</span>
+                            <h3 class="gallery-title">Google Ads Campaign</h3>
+                            <p class="gallery-desc">PPC advertising campaign design and metrics</p>
+                            <button class="gallery-zoom" aria-label="View full size">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-shine"></div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="content" data-delay="200">
+                    <div class="gallery-card">
+                        <img src="photos/poster-content-creation.png" alt="Content Creation Poster" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Content</span>
+                            <h3 class="gallery-title">Content Creation</h3>
+                            <p class="gallery-desc">Videography and multimedia content design</p>
+                            <button class="gallery-zoom" aria-label="View full size">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-shine"></div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="social-media" data-delay="300">
+                    <div class="gallery-card">
+                        <img src="photos/poster-social-media.png" alt="Instagram Feed Design" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Social Media</span>
+                            <h3 class="gallery-title">Instagram Feed Design</h3>
+                            <p class="gallery-desc">Curated Instagram grid layout and brand consistency</p>
+                            <button class="gallery-zoom" aria-label="View full size">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-shine"></div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ads" data-delay="400">
+                    <div class="gallery-card">
+                        <img src="photos/poster-google-ads.png" alt="Meta Ads Strategy Poster" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Ads</span>
+                            <h3 class="gallery-title">Meta Ads Strategy</h3>
+                            <p class="gallery-desc">Facebook & Instagram ad campaign analytics</p>
+                            <button class="gallery-zoom" aria-label="View full size">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-shine"></div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="content" data-delay="500">
+                    <div class="gallery-card">
+                        <img src="photos/poster-content-creation.png" alt="Brand Promotional Material" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-category">Content</span>
+                            <h3 class="gallery-title">Promotional Material</h3>
+                            <p class="gallery-desc">Creative promotional posters and pamphlet designs</p>
+                            <button class="gallery-zoom" aria-label="View full size">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-shine"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Gallery Image Full View">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-desc"></p>
+            </div>
+        </div>
+        <div class="lightbox-counter">
+            <span id="lightbox-current">1</span> / <span id="lightbox-total">6</span>
+        </div>
+    </div>
 
     <!-- Education Section -->
     <section id="education" class="section education-section">

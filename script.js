@@ -188,14 +188,140 @@ const observer = new IntersectionObserver((entries) => {
                 animateCounters();
             }
             
+            // Gallery items
+            if (el.classList.contains('gallery-item')) {
+                const delay = parseInt(el.getAttribute('data-delay')) || 0;
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, delay);
+            }
+            
             observer.unobserve(el);
         }
     });
 }, observerOptions);
 
 // Observe all animatable elements
-document.querySelectorAll('.skill-card, .edu-card, .timeline-item, .internship-card, .hero-stats').forEach(el => {
+document.querySelectorAll('.skill-card, .edu-card, .timeline-item, .internship-card, .hero-stats, .gallery-item').forEach(el => {
     observer.observe(el);
+});
+
+// ===== GALLERY FILTERS =====
+const filterBtns = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        
+        galleryItems.forEach((item, index) => {
+            const category = item.getAttribute('data-category');
+            
+            if (filter === 'all' || category === filter) {
+                item.classList.remove('filtered-out');
+                item.style.display = '';
+                setTimeout(() => {
+                    item.classList.add('filtered-in');
+                }, index * 80);
+            } else {
+                item.classList.remove('filtered-in');
+                item.classList.add('filtered-out');
+                setTimeout(() => {
+                    item.style.display = 'none';
+                }, 300);
+            }
+        });
+    });
+});
+
+// ===== LIGHTBOX =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxTitle = document.getElementById('lightbox-title');
+const lightboxDesc = document.getElementById('lightbox-desc');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+const lightboxCurrent = document.getElementById('lightbox-current');
+const lightboxTotal = document.getElementById('lightbox-total');
+
+let currentLightboxIndex = 0;
+let visibleGalleryItems = [];
+
+function getVisibleItems() {
+    return Array.from(galleryItems).filter(item => !item.classList.contains('filtered-out'));
+}
+
+function openLightbox(index) {
+    visibleGalleryItems = getVisibleItems();
+    currentLightboxIndex = index;
+    updateLightboxContent();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function updateLightboxContent() {
+    const item = visibleGalleryItems[currentLightboxIndex];
+    const img = item.querySelector('img');
+    const title = item.querySelector('.gallery-title');
+    const desc = item.querySelector('.gallery-desc');
+    
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxTitle.textContent = title.textContent;
+    lightboxDesc.textContent = desc.textContent;
+    lightboxCurrent.textContent = currentLightboxIndex + 1;
+    lightboxTotal.textContent = visibleGalleryItems.length;
+}
+
+function nextLightbox() {
+    currentLightboxIndex = (currentLightboxIndex + 1) % visibleGalleryItems.length;
+    updateLightboxContent();
+}
+
+function prevLightbox() {
+    currentLightboxIndex = (currentLightboxIndex - 1 + visibleGalleryItems.length) % visibleGalleryItems.length;
+    updateLightboxContent();
+}
+
+// Gallery card click handlers
+galleryItems.forEach((item) => {
+    const card = item.querySelector('.gallery-card');
+    card.addEventListener('click', () => {
+        const visibleItems = getVisibleItems();
+        const index = visibleItems.indexOf(item);
+        openLightbox(index);
+    });
+});
+
+// Lightbox controls
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxNext.addEventListener('click', nextLightbox);
+lightboxPrev.addEventListener('click', prevLightbox);
+
+// Close on backdrop click
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextLightbox();
+    if (e.key === 'ArrowLeft') prevLightbox();
 });
 
 // ===== SUPABASE CONTACT FORM =====
