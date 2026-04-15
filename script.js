@@ -188,13 +188,7 @@ const observer = new IntersectionObserver((entries) => {
                 animateCounters();
             }
             
-            // Gallery items
-            if (el.classList.contains('gallery-item')) {
-                const delay = parseInt(el.getAttribute('data-delay')) || 0;
-                setTimeout(() => {
-                    el.classList.add('visible');
-                }, delay);
-            }
+
             
             observer.unobserve(el);
         }
@@ -202,164 +196,11 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animatable elements
-document.querySelectorAll('.skill-card, .edu-card, .timeline-item, .internship-card, .hero-stats, .gallery-item').forEach(el => {
+document.querySelectorAll('.skill-card, .edu-card, .timeline-item, .internship-card, .hero-stats').forEach(el => {
     observer.observe(el);
 });
 
-// ===== SWIPER GALLERY =====
-const swiper = new Swiper('.gallerySwiper', {
-    effect: 'coverflow',
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: 'auto',
-    loop: true,
-    speed: 1000,
-    autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-    },
-    coverflowEffect: {
-        rotate: 5,
-        stretch: 0,
-        depth: 350,
-        modifier: 1,
-        slideShadows: true,
-    },
-    navigation: {
-        nextEl: '.next-btn',
-        prevEl: '.prev-btn',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-});
 
-// Category Filtering Logic
-const filterButtons = document.querySelectorAll('.filter-btn');
-const allSlides = Array.from(document.querySelectorAll('.swiper-slide.gallery-item'));
-
-filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Update active button state
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const filterValue = btn.getAttribute('data-filter');
-        
-        // Filter slides
-        swiper.autoplay.stop();
-        
-        // Swiper doesn't support native filtering well without re-initialization 
-        // or destroying/re-creating. A simpler trick for "recreating" look is 
-        // to hide slides and update Swiper.
-        const swiperWrapper = document.querySelector('.swiper-wrapper');
-        swiperWrapper.innerHTML = '';
-        
-        const filteredSlides = filterValue === 'all' 
-            ? allSlides 
-            : allSlides.filter(slide => slide.getAttribute('data-category') === filterValue);
-            
-        filteredSlides.forEach(slide => {
-            swiperWrapper.appendChild(slide.cloneNode(true));
-        });
-        
-        swiper.update();
-        swiper.slideTo(0);
-        swiper.autoplay.start();
-        
-        // Re-attach lightbox listeners to cloned slides
-        attachLightboxListeners();
-    });
-});
-
-// ===== LIGHTBOX =====
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxTitle = document.getElementById('lightbox-title');
-const lightboxDesc = document.getElementById('lightbox-desc');
-const lightboxClose = document.getElementById('lightbox-close');
-const lightboxPrev = document.getElementById('lightbox-prev');
-const lightboxNext = document.getElementById('lightbox-next');
-const lightboxCurrent = document.getElementById('lightbox-current');
-const lightboxTotal = document.getElementById('lightbox-total');
-
-// Collect ALL gallery items
-let allGalleryItems = [];
-let currentLightboxIndex = 0;
-
-function attachLightboxListeners() {
-    allGalleryItems = document.querySelectorAll('.swiper-slide.gallery-item');
-    allGalleryItems.forEach((item, index) => {
-        const card = item.querySelector('.gallery-card');
-        // Remove existing to avoid duplicates if any
-        const newCard = card.cloneNode(true);
-        card.parentNode.replaceChild(newCard, card);
-        
-        newCard.addEventListener('click', () => {
-            openLightbox(index);
-        });
-    });
-}
-
-function openLightbox(index) {
-    currentLightboxIndex = index;
-    updateLightboxContent();
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function updateLightboxContent() {
-    const item = allGalleryItems[currentLightboxIndex];
-    const img = item.querySelector('img');
-    const title = item.querySelector('.gallery-title');
-    
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightboxTitle.textContent = title ? title.textContent : '';
-    lightboxDesc.textContent = '';
-    lightboxCurrent.textContent = currentLightboxIndex + 1;
-    lightboxTotal.textContent = allGalleryItems.length;
-}
-
-function nextLightboxItem() {
-    currentLightboxIndex = (currentLightboxIndex + 1) % allGalleryItems.length;
-    updateLightboxContent();
-}
-
-function prevLightboxItem() {
-    currentLightboxIndex = (currentLightboxIndex - 1 + allGalleryItems.length) % allGalleryItems.length;
-    updateLightboxContent();
-}
-
-// Lightbox controls
-lightboxClose.addEventListener('click', closeLightbox);
-lightboxNext.addEventListener('click', nextLightboxItem);
-lightboxPrev.addEventListener('click', prevLightboxItem);
-
-// Close on backdrop click
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-        closeLightbox();
-    }
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (lightbox.classList.contains('active')) {
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') nextLightboxItem();
-        if (e.key === 'ArrowLeft') prevLightboxItem();
-    }
-});
-
-// Initial attachment
-attachLightboxListeners();
 
 // ===== SUPABASE CONTACT FORM =====
 // Supabase configuration — replace with your actual credentials
