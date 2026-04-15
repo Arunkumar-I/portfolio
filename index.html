@@ -17,7 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -264,312 +265,282 @@
                 <h2 class="section-title">Project Gallery</h2>
                 <p class="section-subtitle">A showcase of my creative designs, posters, and marketing materials</p>
             </div>
-            <div class="carousel-wrapper" id="carousel-wrapper">
-                <button class="carousel-arrow carousel-arrow-left" id="carousel-prev" aria-label="Previous page">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="carousel-viewport" id="carousel-viewport">
-                    <div class="carousel-track" id="carousel-track">
-                        <!-- Page 1 -->
-                        <div class="carousel-page">
-                            <div class="gallery-grid">
-                                <div class="gallery-item" data-delay="0">
-                                    <div class="gallery-card">
-                                        <img src="photos/1.jpg" alt="Poster Design 1" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="50">
-                                    <div class="gallery-card">
-                                        <img src="photos/2.jpg" alt="Poster Design 2" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="100">
-                                    <div class="gallery-card">
-                                        <img src="photos/3.jpg" alt="Poster Design 3" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="150">
-                                    <div class="gallery-card">
-                                        <img src="photos/4.jpg" alt="Poster Design 4" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="200">
-                                    <div class="gallery-card">
-                                        <img src="photos/5.jpg" alt="Poster Design 5" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="250">
-                                    <div class="gallery-card">
-                                        <img src="photos/6.jpg" alt="Poster Design 6" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="300">
-                                    <div class="gallery-card">
-                                        <img src="photos/7.jpg" alt="Poster Design 7" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="350">
-                                    <div class="gallery-card">
-                                        <img src="photos/8.jpg" alt="Poster Design 8" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="400">
-                                    <div class="gallery-card">
-                                        <img src="photos/9.jpg" alt="Poster Design 9" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
+                        <div class="swiper gallerySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide gallery-item" data-delay="100">
+                        <div class="gallery-card">
+                            <img src="photos/1.jpg" alt="Poster Design 1" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
                             </div>
+                            <div class="gallery-shine"></div>
                         </div>
-                        <!-- Page 2 -->
-                        <div class="carousel-page">
-                            <div class="gallery-grid">
-                                <div class="gallery-item" data-delay="0">
-                                    <div class="gallery-card">
-                                        <img src="photos/10.jpg" alt="Poster Design 10" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="50">
-                                    <div class="gallery-card">
-                                        <img src="photos/11.jpg" alt="Poster Design 11" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="100">
-                                    <div class="gallery-card">
-                                        <img src="photos/12.jpg" alt="Poster Design 12" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="150">
-                                    <div class="gallery-card">
-                                        <img src="photos/13.jpg" alt="Poster Design 13" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="200">
-                                    <div class="gallery-card">
-                                        <img src="photos/14.jpg" alt="Poster Design 14" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="250">
-                                    <div class="gallery-card">
-                                        <img src="photos/15.jpg" alt="Poster Design 15" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="300">
-                                    <div class="gallery-card">
-                                        <img src="photos/16.jpg" alt="Poster Design 16" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="350">
-                                    <div class="gallery-card">
-                                        <img src="photos/17.jpg" alt="Poster Design 17" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="400">
-                                    <div class="gallery-card">
-                                        <img src="photos/18.jpg" alt="Poster Design 18" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="200">
+                        <div class="gallery-card">
+                            <img src="photos/2.jpg" alt="Poster Design 2" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
                             </div>
+                            <div class="gallery-shine"></div>
                         </div>
-                        <!-- Page 3 -->
-                        <div class="carousel-page">
-                            <div class="gallery-grid">
-                                <div class="gallery-item" data-delay="0">
-                                    <div class="gallery-card">
-                                        <img src="photos/19.jpg" alt="Poster Design 19" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="50">
-                                    <div class="gallery-card">
-                                        <img src="photos/20.jpg" alt="Poster Design 20" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="100">
-                                    <div class="gallery-card">
-                                        <img src="photos/21.jpg" alt="Poster Design 21" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="150">
-                                    <div class="gallery-card">
-                                        <img src="photos/22.jpg" alt="Poster Design 22" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="200">
-                                    <div class="gallery-card">
-                                        <img src="photos/23.jpg" alt="Poster Design 23" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="250">
-                                    <div class="gallery-card">
-                                        <img src="photos/24.jpg" alt="Poster Design 24" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="300">
-                                    <div class="gallery-card">
-                                        <img src="photos/25.jpg" alt="Poster Design 25" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="350">
-                                    <div class="gallery-card">
-                                        <img src="photos/26.jpg" alt="Poster Design 26" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
-                                <div class="gallery-item" data-delay="400">
-                                    <div class="gallery-card">
-                                        <img src="photos/27.jpg" alt="Poster Design 27" loading="lazy">
-                                        <div class="gallery-overlay">
-                                            <h3 class="gallery-title">Poster Design</h3>
-                                            <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
-                                        </div>
-                                        <div class="gallery-shine"></div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="0">
+                        <div class="gallery-card">
+                            <img src="photos/3.jpg" alt="Poster Design 3" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
                             </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="100">
+                        <div class="gallery-card">
+                            <img src="photos/4.jpg" alt="Poster Design 4" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="200">
+                        <div class="gallery-card">
+                            <img src="photos/5.jpg" alt="Poster Design 5" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="0">
+                        <div class="gallery-card">
+                            <img src="photos/6.jpg" alt="Poster Design 6" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="100">
+                        <div class="gallery-card">
+                            <img src="photos/7.jpg" alt="Poster Design 7" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="200">
+                        <div class="gallery-card">
+                            <img src="photos/8.jpg" alt="Poster Design 8" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="0">
+                        <div class="gallery-card">
+                            <img src="photos/9.jpg" alt="Poster Design 9" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="100">
+                        <div class="gallery-card">
+                            <img src="photos/10.jpg" alt="Poster Design 10" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="200">
+                        <div class="gallery-card">
+                            <img src="photos/11.jpg" alt="Poster Design 11" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="0">
+                        <div class="gallery-card">
+                            <img src="photos/12.jpg" alt="Poster Design 12" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="100">
+                        <div class="gallery-card">
+                            <img src="photos/13.jpg" alt="Poster Design 13" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="200">
+                        <div class="gallery-card">
+                            <img src="photos/14.jpg" alt="Poster Design 14" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="0">
+                        <div class="gallery-card">
+                            <img src="photos/15.jpg" alt="Poster Design 15" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="100">
+                        <div class="gallery-card">
+                            <img src="photos/16.jpg" alt="Poster Design 16" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="200">
+                        <div class="gallery-card">
+                            <img src="photos/17.jpg" alt="Poster Design 17" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="0">
+                        <div class="gallery-card">
+                            <img src="photos/18.jpg" alt="Poster Design 18" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="100">
+                        <div class="gallery-card">
+                            <img src="photos/19.jpg" alt="Poster Design 19" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="200">
+                        <div class="gallery-card">
+                            <img src="photos/20.jpg" alt="Poster Design 20" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="0">
+                        <div class="gallery-card">
+                            <img src="photos/21.jpg" alt="Poster Design 21" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="100">
+                        <div class="gallery-card">
+                            <img src="photos/22.jpg" alt="Poster Design 22" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="200">
+                        <div class="gallery-card">
+                            <img src="photos/23.jpg" alt="Poster Design 23" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="0">
+                        <div class="gallery-card">
+                            <img src="photos/24.jpg" alt="Poster Design 24" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="100">
+                        <div class="gallery-card">
+                            <img src="photos/25.jpg" alt="Poster Design 25" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="200">
+                        <div class="gallery-card">
+                            <img src="photos/26.jpg" alt="Poster Design 26" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide gallery-item" data-delay="0">
+                        <div class="gallery-card">
+                            <img src="photos/27.jpg" alt="Poster Design 27" loading="lazy">
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Poster Design</h3>
+                                <button class="gallery-zoom" aria-label="View full size"><i class="fas fa-expand"></i></button>
+                            </div>
+                            <div class="gallery-shine"></div>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-arrow carousel-arrow-right" id="carousel-next" aria-label="Next page">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            <!-- Carousel Dots -->
-            <div class="carousel-dots" id="carousel-dots">
-                <button class="carousel-dot active" data-page="0" aria-label="Go to page 1"></button>
-                <button class="carousel-dot" data-page="1" aria-label="Go to page 2"></button>
-                <button class="carousel-dot" data-page="2" aria-label="Go to page 3"></button>
-            </div>
-            <!-- Carousel Counter -->
-            <div class="carousel-counter">
-                <span id="carousel-current-page">1</span> / <span id="carousel-total-pages">3</span>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
@@ -817,6 +788,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 
 </html>

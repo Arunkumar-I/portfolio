@@ -206,114 +206,34 @@ document.querySelectorAll('.skill-card, .edu-card, .timeline-item, .internship-c
     observer.observe(el);
 });
 
-// ===== CAROUSEL GALLERY =====
-const carouselTrack = document.getElementById('carousel-track');
-const carouselPrev = document.getElementById('carousel-prev');
-const carouselNext = document.getElementById('carousel-next');
-const carouselDots = document.querySelectorAll('.carousel-dot');
-const carouselCurrentPage = document.getElementById('carousel-current-page');
-const carouselPages = document.querySelectorAll('.carousel-page');
-const totalPages = carouselPages.length;
-let currentPage = 0;
-let autoPlayTimer = null;
-
-function goToPage(pageIndex) {
-    if (pageIndex < 0 || pageIndex >= totalPages) return;
-    currentPage = pageIndex;
-    
-    // Slide track
-    carouselTrack.style.transform = `translateX(-${currentPage * 100}%)`;
-    
-    // Update dots
-    carouselDots.forEach(dot => dot.classList.remove('active'));
-    carouselDots[currentPage].classList.add('active');
-    
-    // Update counter
-    carouselCurrentPage.textContent = currentPage + 1;
-    
-    // Update arrow states
-    carouselPrev.disabled = currentPage === 0;
-    carouselNext.disabled = currentPage === totalPages - 1;
-    
-    // Animate gallery items on the new page
-    const pageItems = carouselPages[currentPage].querySelectorAll('.gallery-item');
-    pageItems.forEach(item => {
-        item.classList.remove('visible');
-        const delay = parseInt(item.getAttribute('data-delay')) || 0;
-        setTimeout(() => {
-            item.classList.add('visible');
-        }, delay + 100);
-    });
-    
-    // Reset auto-play timer
-    resetAutoPlay();
-}
-
-function nextPage() {
-    if (currentPage < totalPages - 1) {
-        goToPage(currentPage + 1);
-    } else {
-        goToPage(0); // Loop back to first
-    }
-}
-
-function prevPage() {
-    if (currentPage > 0) {
-        goToPage(currentPage - 1);
-    }
-}
-
-// Arrow click handlers
-carouselNext.addEventListener('click', nextPage);
-carouselPrev.addEventListener('click', prevPage);
-
-// Dot click handlers
-carouselDots.forEach(dot => {
-    dot.addEventListener('click', () => {
-        const page = parseInt(dot.getAttribute('data-page'));
-        goToPage(page);
-    });
+// ===== SWIPER GALLERY =====
+const swiper = new Swiper('.gallerySwiper', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loop: true,
+    speed: 800,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 250,
+        modifier: 1,
+        slideShadows: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
 });
-
-// Auto-play (every 6 seconds)
-function startAutoPlay() {
-    autoPlayTimer = setInterval(() => {
-        if (currentPage < totalPages - 1) {
-            goToPage(currentPage + 1);
-        } else {
-            goToPage(0);
-        }
-    }, 6000);
-}
-
-function resetAutoPlay() {
-    clearInterval(autoPlayTimer);
-    startAutoPlay();
-}
-
-// Touch/swipe support for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-const carouselViewport = document.getElementById('carousel-viewport');
-
-carouselViewport.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-carouselViewport.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const swipeDistance = touchStartX - touchEndX;
-    if (Math.abs(swipeDistance) > 50) {
-        if (swipeDistance > 0) {
-            nextPage();
-        } else {
-            prevPage();
-        }
-    }
-}, { passive: true });
-
-// Initialize first page
-goToPage(0);
 
 // ===== LIGHTBOX =====
 const lightbox = document.getElementById('lightbox');
@@ -326,8 +246,8 @@ const lightboxNext = document.getElementById('lightbox-next');
 const lightboxCurrent = document.getElementById('lightbox-current');
 const lightboxTotal = document.getElementById('lightbox-total');
 
-// Collect ALL gallery items across all pages
-const allGalleryItems = document.querySelectorAll('.carousel-page .gallery-item');
+// Collect ALL gallery items
+const allGalleryItems = document.querySelectorAll('.swiper-slide.gallery-item');
 let currentLightboxIndex = 0;
 
 function openLightbox(index) {
@@ -385,18 +305,14 @@ lightbox.addEventListener('click', (e) => {
     }
 });
 
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (lightbox.classList.contains('active')) {
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') nextLightboxItem();
-        if (e.key === 'ArrowLeft') prevLightboxItem();
-        return;
-    }
-    
-    // Carousel keyboard navigation
-    if (e.key === 'ArrowRight') nextPage();
-    if (e.key === 'ArrowLeft') prevPage();
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('active')) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextLightboxItem();
+            if (e.key === 'ArrowLeft') prevLightboxItem();
+        }
+    });
 });
 
 // ===== SUPABASE CONTACT FORM =====
