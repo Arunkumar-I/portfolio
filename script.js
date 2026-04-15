@@ -213,26 +213,64 @@ const swiper = new Swiper('.gallerySwiper', {
     centeredSlides: true,
     slidesPerView: 'auto',
     loop: true,
-    speed: 800,
+    speed: 1000,
     autoplay: {
-        delay: 5000,
+        delay: 4000,
         disableOnInteraction: false,
     },
     coverflowEffect: {
-        rotate: 0,
+        rotate: 5,
         stretch: 0,
-        depth: 250,
+        depth: 350,
         modifier: 1,
         slideShadows: true,
     },
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.next-btn',
+        prevEl: '.prev-btn',
     },
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
     },
+});
+
+// Category Filtering Logic
+const filterButtons = document.querySelectorAll('.filter-btn');
+const allSlides = Array.from(document.querySelectorAll('.swiper-slide.gallery-item'));
+
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Update active button state
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filterValue = btn.getAttribute('data-filter');
+        
+        // Filter slides
+        swiper.autoplay.stop();
+        
+        // Swiper doesn't support native filtering well without re-initialization 
+        // or destroying/re-creating. A simpler trick for "recreating" look is 
+        // to hide slides and update Swiper.
+        const swiperWrapper = document.querySelector('.swiper-wrapper');
+        swiperWrapper.innerHTML = '';
+        
+        const filteredSlides = filterValue === 'all' 
+            ? allSlides 
+            : allSlides.filter(slide => slide.getAttribute('data-category') === filterValue);
+            
+        filteredSlides.forEach(slide => {
+            swiperWrapper.appendChild(slide.cloneNode(true));
+        });
+        
+        swiper.update();
+        swiper.slideTo(0);
+        swiper.autoplay.start();
+        
+        // Re-attach lightbox listeners to cloned slides
+        attachLightboxListeners();
+    });
 });
 
 // ===== LIGHTBOX =====
@@ -247,8 +285,22 @@ const lightboxCurrent = document.getElementById('lightbox-current');
 const lightboxTotal = document.getElementById('lightbox-total');
 
 // Collect ALL gallery items
-const allGalleryItems = document.querySelectorAll('.swiper-slide.gallery-item');
+let allGalleryItems = [];
 let currentLightboxIndex = 0;
+
+function attachLightboxListeners() {
+    allGalleryItems = document.querySelectorAll('.swiper-slide.gallery-item');
+    allGalleryItems.forEach((item, index) => {
+        const card = item.querySelector('.gallery-card');
+        // Remove existing to avoid duplicates if any
+        const newCard = card.cloneNode(true);
+        card.parentNode.replaceChild(newCard, card);
+        
+        newCard.addEventListener('click', () => {
+            openLightbox(index);
+        });
+    });
+}
 
 function openLightbox(index) {
     currentLightboxIndex = index;
@@ -285,14 +337,6 @@ function prevLightboxItem() {
     updateLightboxContent();
 }
 
-// Gallery card click handlers - attach to all items
-allGalleryItems.forEach((item, index) => {
-    const card = item.querySelector('.gallery-card');
-    card.addEventListener('click', () => {
-        openLightbox(index);
-    });
-});
-
 // Lightbox controls
 lightboxClose.addEventListener('click', closeLightbox);
 lightboxNext.addEventListener('click', nextLightboxItem);
@@ -305,15 +349,17 @@ lightbox.addEventListener('click', (e) => {
     }
 });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (lightbox.classList.contains('active')) {
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') nextLightboxItem();
-            if (e.key === 'ArrowLeft') prevLightboxItem();
-        }
-    });
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextLightboxItem();
+        if (e.key === 'ArrowLeft') prevLightboxItem();
+    }
 });
+
+// Initial attachment
+attachLightboxListeners();
 
 // ===== SUPABASE CONTACT FORM =====
 // Supabase configuration — replace with your actual credentials
