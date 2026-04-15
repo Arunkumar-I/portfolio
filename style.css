@@ -813,7 +813,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5;
 }
 
 .gallery-card:hover {
