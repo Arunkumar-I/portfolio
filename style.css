@@ -776,6 +776,7 @@ ul {
     align-items: flex-start;
     gap: 24px;
     padding: 8px 0;
+    flex-wrap: wrap;
 }
 
 .gallery-item {
