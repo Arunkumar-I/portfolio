@@ -185,8 +185,8 @@ const observer = new IntersectionObserver((entries) => {
                 }, delay);
             }
             
-            // Education cards & Internship cards
-            if (el.classList.contains('edu-card') || el.classList.contains('internship-card')) {
+            // Education cards & Internship cards & Tool items
+            if (el.classList.contains('edu-card') || el.classList.contains('internship-card') || el.classList.contains('tool-item')) {
                 const delay = parseInt(el.getAttribute('data-delay')) || 0;
                 setTimeout(() => {
                     el.classList.add('visible');
@@ -214,7 +214,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animatable elements
-document.querySelectorAll('.skill-card, .edu-card, .internship-card, .timeline-item, .hero-stats, #projects').forEach(el => {
+document.querySelectorAll('.skill-card, .edu-card, .internship-card, .tool-item, .timeline-item, .hero-stats, #projects').forEach(el => {
     observer.observe(el);
 });
 
