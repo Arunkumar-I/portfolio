@@ -1669,9 +1669,9 @@ ul {
 
 .tool-item:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: var(--accent-color);
+    border-color: var(--accent);
     transform: scale(1.1) translateY(-5px);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-glow);
 }
 
 .tool-item:hover img,
