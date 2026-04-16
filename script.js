@@ -178,10 +178,7 @@ const observer = new IntersectionObserver((entries) => {
                 el.classList.add('visible');
             }
             
-            // Internship card
-            if (el.classList.contains('internship-card')) {
-                el.classList.add('visible');
-            }
+
             
             // Stats counter
             if (el.classList.contains('hero-stats')) {
@@ -196,7 +193,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animatable elements
-document.querySelectorAll('.skill-card, .edu-card, .timeline-item, .internship-card, .hero-stats').forEach(el => {
+document.querySelectorAll('.skill-card, .edu-card, .timeline-item, .hero-stats').forEach(el => {
     observer.observe(el);
 });
 
