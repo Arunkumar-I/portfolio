@@ -139,6 +139,26 @@ function animateCounters() {
     });
 }
 
+// ===== SWIPER INITIALIZATION =====
+const projectsSwiper = new Swiper('.projects-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    centeredSlides: true,
+    loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    keyboard: {
+        enabled: true,
+    },
+});
+
 // ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
 const observerOptions = {
     threshold: 0.1,
@@ -165,8 +185,8 @@ const observer = new IntersectionObserver((entries) => {
                 }, delay);
             }
             
-            // Education cards
-            if (el.classList.contains('edu-card')) {
+            // Education cards & Internship cards
+            if (el.classList.contains('edu-card') || el.classList.contains('internship-card')) {
                 const delay = parseInt(el.getAttribute('data-delay')) || 0;
                 setTimeout(() => {
                     el.classList.add('visible');
@@ -178,14 +198,15 @@ const observer = new IntersectionObserver((entries) => {
                 el.classList.add('visible');
             }
             
-
+            // Projects section entry
+            if (el.id === 'projects') {
+                el.classList.add('visible');
+            }
             
             // Stats counter
             if (el.classList.contains('hero-stats')) {
                 animateCounters();
             }
-            
-
             
             observer.unobserve(el);
         }
@@ -193,7 +214,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animatable elements
-document.querySelectorAll('.skill-card, .edu-card, .timeline-item, .hero-stats').forEach(el => {
+document.querySelectorAll('.skill-card, .edu-card, .internship-card, .timeline-item, .hero-stats, #projects').forEach(el => {
     observer.observe(el);
 });
 
