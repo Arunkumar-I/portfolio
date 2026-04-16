@@ -1594,8 +1594,9 @@ ul {
 .tools-title {
     font-size: 1.8rem;
     margin-bottom: 2.5rem;
-    background: var(--gradient-primary);
+    background: var(--gradient-1);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
     font-weight: 700;
