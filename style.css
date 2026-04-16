@@ -1380,6 +1380,12 @@ ul {
         height: 52px;
         font-size: 1.5rem;
     }
+
+    .scroll-indicator {
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 @media (max-width: 480px) {
