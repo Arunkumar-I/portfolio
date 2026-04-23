@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arunkumar | Digital Marketing & Web Developer</title>
+  <meta name="description" content="Portfolio of Arunkumar – Digital Marketing Executive & Creative Web Developer crafting immersive digital experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Background Canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Floating Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <span class="logo-glyph">A</span>
+      <span class="logo-text">ARUNKUMAR</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link" data-text="Home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-text="About">About</a></li>
+      <li><a href="#skills" class="nav-link" data-text="Skills">Skills</a></li>
+      <li><a href="#services" class="nav-link" data-text="Services">Services</a></li>
+      <li><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
+      <li><a href="#experience" class="nav-link" data-text="Experience">Experience</a></li>
+      <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta magnetic-btn" data-magnetic>Hire Me</button>
+  </nav>
+
+  <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+  <section id="hero" class="hero">
+    <div class="hero-scene" id="heroScene">
+      <!-- 3D Floating Abstract Shape -->
+      <div class="hero-3d-shape" id="heroShape">
+        <div class="shape-face face-front"></div>
+        <div class="shape-face face-back"></div>
+        <div class="shape-face face-left"></div>
+        <div class="shape-face face-right"></div>
+        <div class="shape-face face-top"></div>
+        <div class="shape-face face-bottom"></div>
+      </div>
+      <!-- Holographic Ring -->
+      <div class="holo-ring" id="holoRing"></div>
+      <!-- Floating Particles -->
+      <div class="hero-particles" id="heroParticles"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Available for Work
+      </div>
+      <h1 class="hero-title reveal-up">
+        <span class="title-line">Digital Marketing</span>
+        <span class="title-line gradient-text">Executive &</span>
+        <span class="title-line">Creative Web Dev</span>
+      </h1>
+      <p class="hero-sub reveal-up">
+        I turn ideas into engaging digital experiences — combining marketing strategy, design, and development to grow brands.
+      </p>
+      <div class="hero-cta reveal-up">
+        <button class="btn-primary magnetic-btn" data-magnetic onclick="scrollTo('projects')">
+          <span class="btn-glow"></span>
+          <span class="btn-text">View My Work</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="btn-secondary magnetic-btn" data-magnetic onclick="scrollTo('contact')">
+          <span class="btn-text">Contact Me</span>
+        </button>
+      </div>
+      <div class="hero-stats reveal-up">
+        <div class="stat-item">
+          <span class="stat-num" data-count="10">0</span><span class="stat-unit">Mo</span>
+          <span class="stat-label">Freelance Exp</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="6">0</span><span class="stat-unit">Mo</span>
+          <span class="stat-label">Internship</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-count="3">0</span><span class="stat-unit">+</span>
+          <span class="stat-label">Core Skills</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+  <section id="about" class="section about-section">
+    <div class="section-bg-glow"></div>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="profile-frame reveal-left" data-tilt>
+            <div class="profile-frame-inner">
+              <div class="profile-avatar">
+                <div class="avatar-initials">AK</div>
+                <div class="avatar-ring avatar-ring-1"></div>
+                <div class="avatar-ring avatar-ring-2"></div>
+                <div class="avatar-ring avatar-ring-3"></div>
+              </div>
+            </div>
+            <div class="profile-hologram">
+              <div class="holo-line"></div>
+              <div class="holo-line"></div>
+              <div class="holo-line"></div>
+            </div>
+          </div>
+          <!-- Floating Tools Badge -->
+          <div class="tools-badges">
+            <div class="tool-badge float-1">Figma</div>
+            <div class="tool-badge float-2">Canva</div>
+            <div class="tool-badge float-3">HTML/CSS</div>
+            <div class="tool-badge float-4">WordPress</div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="section-label reveal-up">// WHO AM I</p>
+          <h2 class="section-title reveal-up">
+            Hi, I'm <span class="gradient-text">Arunkumar</span>
+          </h2>
+          <p class="about-text reveal-up">
+            A BE Computer Science graduate with a passion for digital marketing, content creation, and web development. I enjoy blending creativity with analytics — whether it's designing high-converting social media campaigns, building responsive websites, or creating engaging visual content.
+          </p>
+          <p class="about-text reveal-up">
+            With hands-on experience in freelancing and internships, I focus on delivering results that improve brand visibility, engagement, and user experience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SKILLS ═══════════════════════════════ -->
+  <section id="skills" class="section skills-section">
+    <div class="section-bg-glow glow-right"></div>
+    <div class="container">
+
+      <div class="section-header reveal-up">
+        <p class="section-label">// CAPABILITIES</p>
+        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <!-- Floating Skill Pills -->
+        <div class="skills-col reveal-up">
+          <h3 class="skills-col-title">Core Skills</h3>
+          <div class="skill-float-arena" id="skillArena">
+            <button class="skill-pill" data-skill>📢 Digital Marketing &amp; SEO</button>
+            <button class="skill-pill" data-skill>🎬 Content Creation &amp; Social Media</button>
+            <button class="skill-pill" data-skill>💻 Web Development</button>
+            <button class="skill-pill" data-skill>🎨 UI/UX Design</button>
+            <button class="skill-pill" data-skill>🤝 Customer Engagement</button>
+            <button class="skill-pill" data-skill>📊 Lead Generation</button>
+            <button class="skill-pill" data-skill>📈 Google Analytics</button>
+            <button class="skill-pill" data-skill>📋 MS Excel &amp; Data</button>
+            <button class="skill-pill" data-skill>🔍 SEO Optimization</button>
+            <button class="skill-pill" data-skill>🌐 WordPress</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ TOOLS ═══════════════════════════════ -->
+  <section id="tools" class="section tools-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">// MY TECH STACK</p>
+        <h2 class="section-title">Tools & <span class="gradient-text">Technologies</span></h2>
+      </div>
+
+      <div class="tools-premium-grid">
+        <div class="tool-item reveal-up" style="--delay: 0.1s">
+          <div class="tool-card glass-card" data-tilt>
+            <div class="tool-icon-wrap">
+              <img src="photos/icons/figma.png" alt="Figma">
+            </div>
+            <span class="tool-name">Figma</span>
+          </div>
+        </div>
+        <div class="tool-item reveal-up" style="--delay: 0.2s">
+          <div class="tool-card glass-card" data-tilt>
+            <div class="tool-icon-wrap">
+              <img src="photos/icons/canva.png" alt="Canva">
+            </div>
+            <span class="tool-name">Canva</span>
+          </div>
+        </div>
+        <div class="tool-item reveal-up" style="--delay: 0.3s">
+          <div class="tool-card glass-card" data-tilt>
+            <div class="tool-icon-wrap">
+              <img src="photos/icons/photo shop.png" alt="Photoshop">
+            </div>
+            <span class="tool-name">Photoshop</span>
+          </div>
+        </div>
+        <div class="tool-item reveal-up" style="--delay: 0.4s">
+          <div class="tool-card glass-card" data-tilt>
+            <div class="tool-icon-wrap">
+              <img src="photos/icons/davinci resolve icon.png" alt="DaVinci Resolve">
+            </div>
+            <span class="tool-name">DaVinci</span>
+          </div>
+        </div>
+        <div class="tool-item reveal-up" style="--delay: 0.5s">
+          <div class="tool-card glass-card" data-tilt>
+            <div class="tool-icon-wrap">
+              <img src="photos/icons/google ads.png" alt="Google Ads">
+            </div>
+            <span class="tool-name">Google Ads</span>
+          </div>
+        </div>
+        <div class="tool-item reveal-up" style="--delay: 0.6s">
+          <div class="tool-card glass-card" data-tilt>
+            <div class="tool-icon-wrap">
+              <img src="photos/icons/google analytics.png" alt="Google Analytics">
+            </div>
+            <span class="tool-name">Analytics</span>
+          </div>
+        </div>
+        <div class="tool-item reveal-up" style="--delay: 0.7s">
+          <div class="tool-card glass-card" data-tilt>
+            <div class="tool-icon-wrap">
+              <img src="photos/icons/meta ads.png" alt="Meta Ads">
+            </div>
+            <span class="tool-name">Meta Ads</span>
+          </div>
+        </div>
+        <div class="tool-item reveal-up" style="--delay: 0.8s">
+          <div class="tool-card glass-card" data-tilt>
+            <div class="tool-icon-wrap">
+              <img src="photos/icons/meta business suite.png" alt="Meta Suite">
+            </div>
+            <span class="tool-name">Meta Suite</span>
+          </div>
+        </div>
+        <div class="tool-item reveal-up" style="--delay: 0.9s">
+          <div class="tool-card glass-card" data-tilt>
+            <div class="tool-icon-wrap">
+              <img src="photos/icons/wordpress.png" alt="WordPress">
+            </div>
+            <span class="tool-name">WordPress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SERVICES ═══════════════════════════════ -->
+  <section id="services" class="section services-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">// WHAT I DO</p>
+        <h2 class="section-title">Core <span class="gradient-text">Services</span></h2>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card glass-card reveal-up" data-tilt>
+          <div class="card-glow"></div>
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" width="28" height="28"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <h3 class="service-title">Digital Marketing</h3>
+          <ul class="service-list">
+            <li>Social media management</li>
+            <li>Campaign planning & execution</li>
+            <li>Basic SEO optimization</li>
+            <li>Content strategy & creation</li>
+          </ul>
+          <div class="card-number">01</div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="service-card glass-card reveal-up" data-tilt style="--card-delay:0.15s">
+          <div class="card-glow"></div>
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" width="28" height="28"><path d="M15 10l4.553-2.069A1 1 0 0121 8.869v6.262a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <h3 class="service-title">Content & Videography</h3>
+          <ul class="service-list">
+            <li>Promotional video shooting & editing</li>
+            <li>Social media creatives</li>
+            <li>Poster & branding design</li>
+          </ul>
+          <div class="card-number">02</div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card glass-card reveal-up" data-tilt style="--card-delay:0.3s">
+          <div class="card-glow"></div>
+          <div class="service-icon-wrap">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" width="28" height="28"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <h3 class="service-title">Web Development</h3>
+          <ul class="service-list">
+            <li>Responsive website design</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>WordPress websites</li>
+            <li>UI/UX-focused layouts</li>
+          </ul>
+          <div class="card-number">03</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ PROJECTS ═══════════════════════════════ -->
+  <section id="projects" class="section projects-section">
+    <div class="section-bg-glow glow-right"></div>
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">// MY WORK</p>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card glass-card reveal-up" data-tilt>
+          <div class="card-glow"></div>
+          <div class="project-top">
+            <div class="project-tag">Portfolio</div>
+            <div class="project-links">
+              <a href="#" class="proj-link" aria-label="View project">
+                <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-visual">
+            <div class="project-mockup">
+              <div class="mockup-bar"></div>
+              <div class="mockup-content">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+                <div class="mockup-blocks">
+                  <div class="mockup-block"></div>
+                  <div class="mockup-block"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="project-title">Portfolio Website</h3>
+          <p class="project-desc">AI-assisted portfolio built with HTML, CSS & JavaScript. Responsive UI/UX optimized for performance across all devices.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">AI-Assisted</span>
+          </div>
+        </div>
+
+        <!-- Placeholder Card -->
+        <div class="project-card project-card-placeholder glass-card reveal-up" style="--card-delay:0.2s">
+          <div class="placeholder-text">More Projects Coming Soon</div>
+          <div class="placeholder-orbit">
+            <div class="orbit-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ EXPERIENCE ═══════════════════════════════ -->
+  <section id="experience" class="section experience-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">// MY JOURNEY</p>
+        <h2 class="section-title">Experience & <span class="gradient-text">Education</span></h2>
+      </div>
+
+      <div class="timeline">
+        <!-- Exp 1 -->
+        <div class="timeline-item reveal-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card" data-tilt>
+            <div class="card-glow"></div>
+            <div class="tl-meta">
+              <span class="tl-type work">Work</span>
+              <span class="tl-duration">10 Months</span>
+            </div>
+            <h3 class="tl-title">Digital Marketing Freelancer</h3>
+            <p class="tl-org">Independent</p>
+            <ul class="tl-points">
+              <li>Managed social media accounts to boost engagement</li>
+              <li>Optimized LinkedIn business profiles</li>
+              <li>Created posters, creatives & marketing content</li>
+              <li>Planned strategies to improve brand visibility</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Exp 2 -->
+        <div class="timeline-item reveal-up" style="--tl-delay:0.2s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card" data-tilt>
+            <div class="card-glow"></div>
+            <div class="tl-meta">
+              <span class="tl-type work">Internship</span>
+              <span class="tl-duration">6 Months</span>
+            </div>
+            <h3 class="tl-title">Front-End Developer Intern</h3>
+            <p class="tl-org">Code Sight Global Solutions</p>
+            <ul class="tl-points">
+              <li>Developed responsive web pages</li>
+              <li>Collaborated with UI/UX and backend teams</li>
+              <li>Learned Git and basic SEO practices</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Edu 1 -->
+        <div class="timeline-item reveal-up" style="--tl-delay:0.4s">
+          <div class="timeline-dot dot-edu"></div>
+          <div class="timeline-card glass-card" data-tilt>
+            <div class="card-glow"></div>
+            <div class="tl-meta">
+              <span class="tl-type edu">Education</span>
+              <span class="tl-duration">2025</span>
+            </div>
+            <h3 class="tl-title">BE – Computer Science & Engineering</h3>
+            <p class="tl-org">Sengunthar Engineering College</p>
+            <ul class="tl-points">
+              <li>CGPA: 7.5</li>
+              <li>HSC: 81% &nbsp;|&nbsp; SSLC: 79%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+  <section id="contact" class="section contact-section">
+    <div class="section-bg-glow"></div>
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">// GET IN TOUCH</p>
+        <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+        <p class="contact-intro">Have a project in mind? Let's collaborate and create something amazing together.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="contact-item glass-card" data-tilt>
+            <div class="card-glow"></div>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke="currentColor" stroke-width="2"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Salem, Tamil Nadu</span>
+            </div>
+          </div>
+          <div class="contact-item glass-card" data-tilt>
+            <div class="card-glow"></div>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">Email</span>
+              <a href="mailto:arunkumaricse@gmail.com" class="contact-value">arunkumaricse@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item glass-card" data-tilt>
+            <div class="card-glow"></div>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">Phone</span>
+              <a href="tel:+918610810660" class="contact-value">+91 8610810660</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal-right">
+          <form class="contact-form glass-card" id="contactForm">
+            <div class="card-glow"></div>
+            <div class="form-group">
+              <input type="text" id="name" class="form-input" placeholder=" " required />
+              <label for="name" class="form-label">Your Name</label>
+              <div class="form-line"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" class="form-input" placeholder=" " required />
+              <label for="email" class="form-label">Email Address</label>
+              <div class="form-line"></div>
+            </div>
+            <div class="form-group">
+              <textarea id="message" class="form-input form-textarea" placeholder=" " required></textarea>
+              <label for="message" class="form-label">Your Message</label>
+              <div class="form-line"></div>
+            </div>
+            <button type="submit" class="btn-primary btn-full magnetic-btn" data-magnetic>
+              <span class="btn-glow"></span>
+              <span class="btn-text">Send Message</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-glyph">A</span>
+        <span class="logo-text">ARUNKUMAR</span>
+      </div>
+      <p class="footer-copy">&copy; 2026 Arunkumar. All rights reserved.</p>
+      <div class="footer-scroll-top" id="scrollTop">
+        <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
